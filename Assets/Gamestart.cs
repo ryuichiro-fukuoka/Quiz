@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Gamestart : MonoBehaviour{
+    public static int qCount;
     public void NextScene(){
         // 今いるシーンがTitleという名前なら、Quizという名前に変化する。
         if(SceneManager.GetActiveScene ().name == "Title"){ 
@@ -12,8 +13,22 @@ public class Gamestart : MonoBehaviour{
 
     public void NextQuiz(){
         if(SceneManager.GetActiveScene().name == "Result"){
-            SceneManager.LoadScene("Quiz");
+            if(qCount < 2){
+                qCount++;
+                SceneManager.LoadScene("Quiz");
+            }else{
+                qCount = 0;
+                SceneManager.LoadScene("Score");
+            }    
+        }
+    }
+
+    public void BackTotitle(){
+        if(SceneManager.GetActiveScene().name == "Score"){
+            ResultMgr.SetScoreData(0);
+            SceneManager.LoadScene("Title");
         }
     }
   
+    
 }

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Result.unity
     guid: fa158684efce2994aae10799d9e887e2
+  - enabled: 1
+    path: Assets/Score.unity
+    guid: 9d6b316be4983d345a92d47f3fe682b2
   m_configObjects: {}
